@@ -75,7 +75,7 @@ q + theme(axis.text.x = element_text(color = "black",
 
 # LDA with 95% ellipses
 
-df<-lda(population ~ .,  data = train.transformed) 
+df<-lda(population ~ .,  data = com.transformed) 
 
 datPred<-data.frame(population=predict(df)$class,predict(df)$x) 
 
@@ -97,7 +97,7 @@ q + theme(axis.text.x = element_text(color = "black",
 
 # discriminant factors
 
-df.lda <- lda(population~ ., data= train.transformed)
+df.lda <- lda(population~ ., data= com.transformed)
 df.lda.values <- predict(df.lda)
 head(df.lda)
 
