@@ -46,14 +46,14 @@ preproc.param <- com %>%
   preProcess(method = c("center", "scale"))
 
 # standardize the data using the estimated parameters
-train.transformed <- preproc.param %>% predict(com)
+com.transformed <- preproc.param %>% predict(com)
 
 #check
-mean(train.transformed$leaf_width)
+mean(com.transformed$leaf_width)
 
 
 # Fit the model
-model <- lda(population~., data = train.transformed)
+model <- lda(population~., data = com.transformed)
 model
 
 # model predictions
@@ -61,7 +61,7 @@ predict(model)
 
 # compute LDA
 
-lda.data <- cbind(train.transformed, predict(model)$x)
+lda.data <- cbind(com.transformed, predict(model)$x)
 
 # graph with ggplot
 
