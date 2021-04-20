@@ -22,8 +22,8 @@ library(phytools)
 bs <- bootstrap.phyDat(tilingii_phyDat, FUN =function(x) nj(dist.ml(x)), bs=1000)
 
 #root by Dentilobus and drop root tip
-bs <-root(bs, "DENT")
-ntrees<-lapply(bs,drop.tip,tip="DENT")
+bs1 <-root(bs, "DENT")
+ntrees<-lapply(bs1,drop.tip,tip="DENT")
 
 #smooth tree
 ntrees1<-lapply(ntrees,chronopl, 1, node = "root", CV = FALSE )
